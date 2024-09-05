@@ -2,10 +2,19 @@
 
 setterm -foreground green -background blue
 
-echo "Enter domain name: "
-read domain_name
-nslookup "$domain_name" | grep -E  '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]' > /dev/pts/0
-ping $domain_name > /dev/pts/0
+
+function network_diagnostics(){
+
+	echo "Enter domain name: "
+	read domain_name
+	dig +short $domain_name > /dev/pts/0
+
+	traceroute $domain_name
+
+	return 0
+}
+
+network_diagnostics
 
 
-
+exit 0
