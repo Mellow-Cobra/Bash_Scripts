@@ -14,7 +14,13 @@ function network_diagnostics(){
 	return 0
 }
 
-network_diagnostics
+function get_system_cpu_information(){
 
+	architecture=$( lscpu | grep -oP 'Architecture:\s*\K.+' )
+	echo $architecture
+}
+
+#network_diagnostics
+get_system_cpu_information
 
 exit 0
