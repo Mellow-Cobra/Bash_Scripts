@@ -18,9 +18,11 @@ function get_system_cpu_information(){
 
 	architecture=$( lscpu | grep -oP 'Architecture:\s*\K.+' )
 	echo $architecture
+	cpu_model=$( lscpu | grep -oP 'Model name:\s*\K.+' )
+	echo $cpu_model
 }
 
-#network_diagnostics
+network_diagnostics
 get_system_cpu_information
 
 exit 0
