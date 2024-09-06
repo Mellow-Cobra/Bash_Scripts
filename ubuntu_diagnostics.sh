@@ -20,7 +20,12 @@ function get_system_cpu_information(){
 	echo $architecture
 	cpu_model=$( lscpu | grep -oP 'Model name:\s*\K.+' )
 	echo $cpu_model
+	vendor_id=$( lscpu | grep -oP 'Vendor ID:\s*\K.+' )
+	echo $vendor_id
 }
+
+function get_system
+
 
 network_diagnostics
 get_system_cpu_information
